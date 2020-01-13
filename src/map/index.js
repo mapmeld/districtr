@@ -15,7 +15,7 @@ export class MapState {
             zoom: 3,
             pitchWithRotate: false,
             // dragRotate: false,
-            preserveDrawingBuffer: true,
+            // preserveDrawingBuffer: true,
             dragPan: true,
             touchZoomRotate: true,
             ...options

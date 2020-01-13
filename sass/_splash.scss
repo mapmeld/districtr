@@ -180,10 +180,12 @@ p {
 .landing-page .quick-links {
   article {
     margin: 1rem;
+    width: 100%;
   }
 
   h3, li, a {
-    font-size: 80%;
+    font-size: 100%;
+    width: 100%;
   }
 }
 
