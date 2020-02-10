@@ -87,29 +87,30 @@ export function addLayers(map, parts, tilesets, layerAdder, borderId) {
 
     // cities in Communities of Interest will have a thick border
     if (borderId) {
-        fetch(`/assets/city_border/${borderId}.geojson`).then(res => res.json())
-            .catch(err => {})
-            .then((geojson) => {
+        try {
+            fetch(`/assets/city_border/${borderId}.geojson`).then(res => res.json())
+                .then((geojson) => {
 
-            map.addSource('city_border', {
-                type: 'geojson',
-                data: geojson
-            });
+                map.addSource('city_border', {
+                    type: 'geojson',
+                    data: geojson
+                });
 
-            new Layer(
-                map,
-                {
-                    id: "city_border",
-                    source: "city_border",
-                    type: "line",
-                    paint: {
-                        "line-color": "#000",
-                        "line-opacity": 0.7,
-                        "line-width": 3
+                new Layer(
+                    map,
+                    {
+                        id: "city_border",
+                        source: "city_border",
+                        type: "line",
+                        paint: {
+                            "line-color": "#000",
+                            "line-opacity": 0.7,
+                            "line-width": 3
+                        }
                     }
-                }
-            );
-        });
+                );
+            });
+        } catch(e) {}
     }
 
     return { units, unitsBorders, points };
